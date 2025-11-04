@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string UNIDADES[] = {"","uno","dos","tres","cuatro","cinco","seis","siete","ocho","nueve"};
+string DECENAS[] = {"","diez","veinte","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"};
+
+string literal(int n) {
+    if (n == 0) return "cero";
+    if (n < 10) return UNIDADES[n];
+    if (n < 100) return DECENAS[n/10] + (n%10 ? " y " + UNIDADES[n%10] : "");
+    if (n < 1000) return UNIDADES[n/100] + "cientos " + literal(n%100);
+    if (n < 2000) return "mil " + literal(n%1000);
+    return "numero grande";
+}
+
+int main() {
+    double r;
+    cout << "Ingrese un monto en Bs: ";
+    cin >> r;
+    int ent = (int)r;
+    int dec = (r - ent) * 100;
+    cout << "Literal: " << literal(ent) << " " << dec << "/100 bolivianos" << endl;
+    return 0;
+}

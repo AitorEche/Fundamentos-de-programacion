@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 1; i <= n; i++) f *= i;
+    return f;
+}
+
+long long COMBI(int n, int r) {
+    return FAC(n) / (FAC(r) * FAC(n - r));
+}
+
+int main() {
+    int n, r;
+    cout << "Ingrese n y r: ";
+    cin >> n >> r;
+    cout << "C(" << n << "," << r << ") = " << COMBI(n, r) << endl;
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+bool bisiesto(int a) {
+    return (a%4==0 && a%100!=0) || (a%400==0);
+}
+
+bool validar(int d, int m, int a) {
+    int dias[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+    if (bisiesto(a)) dias[2] = 29;
+    return m>=1 && m<=12 && d>=1 && d<=dias[m];
+}
+
+int main() {
+    int d,m,a;
+    cout << "Ingrese dia, mes, año: ";
+    cin >> d >> m >> a;
+    if (validar(d,m,a)) cout << "Fecha valida" << endl;
+    else cout << "Fecha invalida" << endl;
+    return 0;
+}

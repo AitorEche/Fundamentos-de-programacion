@@ -1,0 +1,16 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double REDONDEAR(double r, int n) {
+    double f = pow(10, n);
+    return round(r * f) / f;
+}
+
+int main() {
+    double r; int n;
+    cout << "Ingrese numero y decimales: ";
+    cin >> r >> n;
+    cout << "Redondeado: " << REDONDEAR(r, n) << endl;
+    return 0;
+}
